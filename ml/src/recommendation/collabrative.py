@@ -23,3 +23,16 @@ movie_similarity_df = pd.DataFrame(
     index = movie_ids,
     columns = movie_ids
 )
+
+def recommend_similar_movies(movie_id, top_n=10):
+    if movie_id not in movie_similarity_df.index:
+        # return pd.DataFrame(columns=["movieId", "title"])
+        return []
+    
+    similarity_scores = movie_similarity_df[movie_id]
+    similar_movies = similarity_scores.sort_values(ascending=False)[1:top_n + 1]
+    
+    recommentations = movies_df[movies_df["movieId"].isin(similar_movies.index)][["movieId", "title"]]
+    
+    return recommentations.to_dict(orient="records")
+  
