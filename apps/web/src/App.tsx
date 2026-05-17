@@ -1,10 +1,5 @@
-import MovieList from './components/MovieList'
+import SearchPanel from './components/SearchPanel'
 
 export default function App() {
-  return (
-    <main>
-      <h1>Movie Recommender</h1>
-      <MovieList />
-    </main>
-  )
+  return <SearchPanel />
 }
