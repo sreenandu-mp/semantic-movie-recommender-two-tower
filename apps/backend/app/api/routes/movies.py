@@ -4,6 +4,7 @@ from ml.src.recommendation.popular import get_popular
 from ml.src.recommendation.collabrative import recommend_similar_movies
 from ml.src.recommendation.semantic_search import semantic_search
 from ml.src.recommendation.personalized_retrieval import recommend_movies_for_user
+from ml.src.ranking.inference import ranked_recommendations
 
 
 router = APIRouter()
@@ -27,3 +28,7 @@ def read_semantic_recommendations(movie_id: int):
 @router.get("/movies/{user_id}/personalized")
 def read_personalized_recommendations(user_id: int):
     return recommend_movies_for_user(user_id)
+
+@router.get("/movies/{user_id}/ranked")
+def read_ranked_recommendations(user_id: int):
+    return ranked_recommendations(user_id)

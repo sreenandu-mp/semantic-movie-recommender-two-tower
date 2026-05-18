@@ -21,7 +21,7 @@ movie_average_rating = (
     .reset_index(name='avg_rating')
 )
 
-user_actitvity = (
+user_activity = (
     ratings.groupby('userId').size()
     .reset_index(name='user_activity')
 )
