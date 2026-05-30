@@ -9,7 +9,7 @@ export default function MovieList() {
   return (
     <ul>
       {data?.map((movie) => (
-        <li key={movie.id}>{movie.title}</li>
+        <li key={movie.movieId}>{movie.title}</li>
       ))}
     </ul>
   )
